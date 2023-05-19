@@ -1,0 +1,19 @@
+{% extends 'layouts/main.html' %} {% block title %}Report/Change Device Status{%
+endblock %} {% block content %}
+<div class="form-wrapper">
+  <form method="post" class="form" action="/device/{{ device._id }}/status">
+    <h3 class="form-heading">Update Device Status</h3>
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">Device Status</label>
+      {{ form.status(class_ = 'form-control', autofocus=true, value=status) }}
+    </div>
+
+    <input
+      type="submit"
+      value="Add device"
+      class="btn btn-primary btn-lg btn-block"
+    />
+  </form>
+</div>
+{% endblock %}

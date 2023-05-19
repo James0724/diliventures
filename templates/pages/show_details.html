@@ -1,0 +1,31 @@
+{% extends 'layouts/main.html' %} {% block title %}Show Details{% endblock %} {%
+block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h1 class="monospace">{{ show.name }}</h1>
+		<h4>{{ show.start_time|datetime('full') }}</h4>
+		<p class="subtitle">ID: {{ show.id }}</p>
+
+		<p>
+			<i class="fas fa-globe-americas"></i> {{ show.venue.city }}, {{
+			show.venue.state }}
+		</p>
+		<p>
+			<i class="fas fa-map-marker"></i> {% if show.venue.address %}{{
+			show.venue.address }}{% else %}No Address{% endif %}
+		</p>
+	</div>
+	<div class="col-sm-6">
+		<p>Featured Artist</p>
+		<h5>
+			<a href="/artists/{{ show.artist_id }}">{{ show.artist.name }}</a>
+		</h5>
+		<img src="{{ show.artist.image_link }}" alt="Artist Image" />
+	</div>
+</div>
+
+<a href="/venues/{{ show.venue.id }}/edit"
+	><button class="btn btn-primary btn-lg">Edit</button></a
+>
+
+{% endblock %}

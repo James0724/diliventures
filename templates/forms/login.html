@@ -1,0 +1,25 @@
+{% extends 'layouts/main.html' %} {% block title %}Login Form{% endblock %} {%
+block content %}
+<div class="form-wrapper">
+  <form class="form" method="post" action="/login">
+    <h3 class="form-heading"><em>Login</em></h3>
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">Email</label>
+      {{ form.email(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">Password</label>
+      {{ form.password(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <input
+      type="submit"
+      value="Login"
+      class="btn btn-primary btn-lg btn-block"
+    />
+  </form>
+</div>
+{% endblock %}

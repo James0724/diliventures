@@ -1,0 +1,28 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Show Search{% endblock %}
+{% block content %}
+
+    <div class="page-header">
+        <h1>Fyyur Search!</h1>
+    </div>
+    <p class="lead"> Show Search </p>
+
+    <ul class="nav nav-pills">
+        <li class="active"><a>Shows</a></li>
+    </ul>
+    <ul class="items">
+	{% for show in shows %}
+	<li>
+		<a href="/shows/{{ show.id }}">
+			<i class="fas fa-users"></i>
+			<div class="item">
+				<h5>{{ show.name }}</h5>
+			</div>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+
+{#    Todo implement show search frontend #}
+
+{% endblock %}

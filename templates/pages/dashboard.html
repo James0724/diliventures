@@ -1,0 +1,28 @@
+{% extends 'layouts/main.html' %} {% block title %}User Details{% endblock %} {%
+block content %}
+<div class="row">
+  <div class="col-sm-6">
+    <h1 class="monospace">Welcome {{ user.name }}</h1>
+    <p class="subtitle">User ID: {{ user._id }}</p>
+  </div>
+  <div class="col-sm-6">
+    <p>User Devices</p>
+    {% for device in my_device %}
+    <span class="genre"
+      >{{ device.device_name }} - {{device.status}}
+      <a href="/device/{{device._id}}/transfer"
+        ><button class="btn btn-primary btn-sm">Change Ownership</button></a
+      >
+      <a href="/device/{{device._id}}/status"
+        ><button class="btn btn-primary btn-sm">Change Status</button></a
+      ></span
+    >
+    {% endfor %}
+  </div>
+</div>
+
+<a href="/addnewdevice/{{ user._id }}"
+  ><button class="btn btn-primary btn-lg">Add Device</button></a
+>
+
+{% endblock %}

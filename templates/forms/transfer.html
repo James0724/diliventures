@@ -1,0 +1,26 @@
+{% extends 'layouts/main.html' %} {% block title %}Device Ownership{% endblock
+%} {% block content %}
+<div class="form-wrapper">
+  <form class="form" method="post" action="/device/{{device._id}}/transfer">
+    <h3 class="form-heading">
+      Change Ownership for <em>{{ device.device_name }}</em>
+    </h3>
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">New user Name</label>
+      {{ form.new_userName(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">New user email</label>
+      {{ form.new_userEmail(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <input
+      type="submit"
+      value="Change Ownership"
+      class="btn btn-primary btn-lg btn-block"
+    />
+  </form>
+</div>
+{% endblock %}

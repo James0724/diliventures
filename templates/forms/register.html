@@ -1,0 +1,38 @@
+{% extends 'layouts/main.html' %} {% block title %}Register Form{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+  <form class="form" method="post" action="/register">
+    <h3 class="form-heading"><em>REGISTER FORM</em></h3>
+
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">Name</label>
+      {{ form.user_name(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">Email</label>
+      {{ form.email(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">Password</label>
+      {{ form.password1(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <div class="form-group">
+      {{ form.csrf_token() }}
+      <label for="name">Confirm Password</label>
+      {{ form.password2(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <input
+      type="submit"
+      value="Submit Details"
+      class="btn btn-primary btn-lg btn-block"
+    />
+  </form>
+</div>
+{% endblock %}
