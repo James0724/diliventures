@@ -14,7 +14,7 @@ from werkzeug.routing import BaseConverter
 from .forms import *
 from .config import MONGO_URI, SECRET_KEY
 
-app = Flask(__name__)
+app = Flask("Diliventures")
 app.config['SECRET_KEY'] = SECRET_KEY
 
 client = MongoClient(MONGO_URI)
@@ -302,7 +302,3 @@ def submit_editstatus(device_id):
         flash(
             'No user with that email in our database try registering the user and try again')
         return render_template('forms/editdevicestatus.html', form=form, user=user, device=device)
-
-
-if __name__ == "__main__":
-    app.run()
